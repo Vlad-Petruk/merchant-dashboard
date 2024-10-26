@@ -1,14 +1,13 @@
 import { Registration } from './components/registration/Registration'
-// import { useState } from 'react'
+import { RegistrationProvider } from './hooks/RegistrationContext';
 import './App.css'
 
-function App() {
-
+const App = () => {
   return (
-    <>
+    <RegistrationProvider>
       <Registration />
-    </>
-  )
-}
+    </RegistrationProvider>
+  );
+};
 
 export default App

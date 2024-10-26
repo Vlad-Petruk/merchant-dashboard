@@ -1,0 +1,43 @@
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #d0d0d0; 
+}
+
+.circle.completed {
+  background-color: #4caf50; 
+}
+
+.line {
+  width: 2px;
+  height: 40px;
+  background-color: #d0d0d0; 
+}
+
+.line.completed {
+  background-color: #4caf50; 
+}
+
+.label {
+    font-size: 16px;
+    color: #070707;
+    opacity: 0.6; 
+  }
+  
+  .label.completed {
+    font-weight: bold;
+    opacity: 1; 
+  }
