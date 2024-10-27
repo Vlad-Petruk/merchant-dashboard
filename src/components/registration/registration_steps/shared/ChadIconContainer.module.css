@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    height: 32px;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #20496C;
+}
+
+.container img{
+    width: 32px;
+    height: 32px;
+}
