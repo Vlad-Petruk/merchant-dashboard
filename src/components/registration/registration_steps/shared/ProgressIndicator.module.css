@@ -115,3 +115,26 @@
   background-color: #96CAF7;
 }
 
+.buttons{
+  margin-top: 24px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button{
+  background-color: #134267;
+  border: none;
+  color: #5D7FA3;
+  font-size: 16px;
+  width: 85px;
+  height: 33px;
+  padding: 6px 12px 6px 12px;
+  gap: 8px;
+  border-radius: 4px;
+}
+
+.buttons button:active,
+.buttons button:focus{
+  background-color: #134267;
+}
