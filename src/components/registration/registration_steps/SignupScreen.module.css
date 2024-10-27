@@ -1,7 +1,7 @@
 .card{
     margin-top: 5vh;
     padding: 64px 40px;
-    height: 80vh;
+    height: 85vh;
     width: 30vw;
     border-radius: 8px 0px 0px 0px;
     box-shadow: 0px 5px 20px 0px #6C758B33;
@@ -24,4 +24,58 @@ h2{
     line-height: 21px;
     letter-spacing: -0.01em;
     text-align: left;
+    margin-bottom: 5px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #4F637D;
+    margin-bottom: 8px;
+}
+
+input{
+    /* width: Fill (400px)px; */
+    height: 45px;
+    padding: 10px 10px 10px 17px;
+    margin-bottom: 16px;
+    gap: 10px;
+    border-radius: 4px;
+    color: #C3CAD5;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    text-align: left;
+
+    background-color: #F8F9FC;
+    border: none;
+}
+
+.login{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-align: center;
+}
+
+button{
+    height: 43px;
+    padding: 11px 0px 11px 0px;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: #32ABF2;
+    font-size: 14px;
+    line-height: 1.4;
+    color: white;
+    border: none;
 }
