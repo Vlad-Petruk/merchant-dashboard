@@ -1,9 +1,13 @@
 import { ProgressIndicator } from "./shared/ProgressIndicator"
-
+import { FormContainer } from "./shared/FormContainer"
+import styles from '../Registration.module.css'
 function SignupScreen() {
 
     return(
-        <ProgressIndicator/>
+        <div className={styles.stepScreen}>
+            <ProgressIndicator/>
+            <FormContainer>Card</FormContainer>
+        </div>
     )
 }
 
