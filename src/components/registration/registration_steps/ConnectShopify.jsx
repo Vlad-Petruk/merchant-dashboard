@@ -5,6 +5,13 @@ import { useRegistration } from "../../../hooks/RegistrationContext";
 import styles from '../Registration.module.css'
 import cardStyles from './ConnectShopify.module.css'
 
+
+
+
+
+// Outlet????
+
+
 function ListItem ({childHeader, childText}) {
     return(
         <div className={cardStyles.listItem}>
@@ -61,6 +68,26 @@ function ShopifyAlreadyConnected () {
     )
 }
 
+function ShopifyAbsentCard () {
+    return(
+        <div className={cardStyles.absentCard}>
+            <ChadIconContainer />
+            <h2>{"Don't use Shopify?"}</h2>
+            <p className={cardStyles.smallText}>Chad Beta is currently only available on Shopify. We’ll send you an email when Chad becomes available on your platform.</p>
+
+            <form>
+                <label htmlFor="platform">Platform</label>
+                <select name="platform" className={cardStyles.platformSelect}>
+                    <option value="Select platform">Select Platform</option>
+                </select>
+            </form>
+            
+            <button type="button" className={cardStyles.create}>Submit</button>
+            <p className={cardStyles.login}>Actualy use Shopify? <a href="">Connect</a></p>
+        </div>
+    )
+}
+
 function ConnectShopify() {
     const{ currentStep, handleBack, handleNext } = useRegistration()
 
@@ -73,7 +100,8 @@ function ConnectShopify() {
             <FormContainer>
                 {/* <ConnectShopifyCard/> */}
                 {/* <SuccesfullShopifyConnection /> */}
-                <ShopifyAlreadyConnected />
+                {/* <ShopifyAlreadyConnected /> */}
+                <ShopifyAbsentCard />
             </FormContainer>
             
         </div>
