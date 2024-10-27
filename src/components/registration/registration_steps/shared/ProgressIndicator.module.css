@@ -40,8 +40,12 @@
   border: 2px solid #5D7FA3;
 }
 
-.circle.completed {
+.circle.active {
   border-color: #32ABF2;
+}
+
+.circle.completed{
+  background-color: #32ABF2;
 }
 
 .line {
@@ -63,3 +67,51 @@
 .label.completed {
   color: white;
 }
+
+.textAndDots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.text {
+  width: 100%;
+  max-width: 364px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  color: #96CAF7; 
+  background-color: #134267;
+}
+
+.boldText {
+  font-size: 32px;
+  font-weight: 700;
+  margin-right: 16px;
+  color: #96CAF7;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Dots Container Styling */
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #134267;
+  border-radius: 50%;
+}
+
+.activeDot {
+  background-color: #96CAF7;
+}
+
