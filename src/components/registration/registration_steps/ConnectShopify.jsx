@@ -88,6 +88,17 @@ function ShopifyAbsentCard () {
     )
 }
 
+function ResponceForAbsentShopifyCard() {
+    return (
+        <div className={cardStyles.responceCard}>
+            <img src="/done.gif" alt="racoon" className={cardStyles.imgDone}/>
+            <h2 className={cardStyles.centered}>Responce received</h2>
+            <p className={cardStyles.smallText}>{"Thank you for your interest in Chad! We'll be hard at work building integrations to support your platform."}</p>
+            <button type="button" className={cardStyles.continueBtn}>Done</button>
+        </div>
+    )
+}
+
 function ConnectShopify() {
     const{ currentStep, handleBack, handleNext } = useRegistration()
 
@@ -102,6 +113,7 @@ function ConnectShopify() {
                 {/* <SuccesfullShopifyConnection /> */}
                 {/* <ShopifyAlreadyConnected /> */}
                 <ShopifyAbsentCard />
+                {/* <ResponceForAbsentShopifyCard /> */}
             </FormContainer>
             
         </div>
