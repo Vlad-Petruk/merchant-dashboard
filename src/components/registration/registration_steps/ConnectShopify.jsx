@@ -50,6 +50,17 @@ function SuccesfullShopifyConnection () {
     )
 }
 
+function ShopifyAlreadyConnected () {
+    return(
+        <div className={cardStyles.racoonCard}>
+            <img src="/racoon.png" alt="racoon" />
+            <h2 className={cardStyles.centered}>[STORE-NAME] already connected</h2>
+            <button type="button" className={cardStyles.continueBtn}>Continue</button>
+            <p className={cardStyles.login}>Not your store?<a href="">Connect another one</a></p>
+        </div>
+    )
+}
+
 function ConnectShopify() {
     const{ currentStep, handleBack, handleNext } = useRegistration()
 
@@ -61,7 +72,8 @@ function ConnectShopify() {
             </ProgressIndicator>
             <FormContainer>
                 {/* <ConnectShopifyCard/> */}
-                <SuccesfullShopifyConnection />
+                {/* <SuccesfullShopifyConnection /> */}
+                <ShopifyAlreadyConnected />
             </FormContainer>
             
         </div>
