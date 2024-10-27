@@ -20,6 +20,7 @@ function SignupScreen() {
                     <input type="text" name="name" className={cardStyles.name} placeholder="Mega Chad"/>
                     <label htmlFor="password">Password</label>
                     <input type="text" name="password" className={cardStyles.password} placeholder="Enter password"/>
+                    
                     <button type="button" className={cardStyles.create}>Create account</button>
                     <p className={cardStyles.login}>Already have an account? <a href="">Login</a></p>
                 </form>

@@ -25,6 +25,7 @@ h2{
     letter-spacing: -0.01em;
     text-align: left;
     margin-bottom: 5px;
+    color: #4F637D;
 }
 
 form{
@@ -67,6 +68,8 @@ input{
     line-height: 18px;
     letter-spacing: -0.01em;
     text-align: center;
+    color: #4F637D;
+
 }
 
 .create{
