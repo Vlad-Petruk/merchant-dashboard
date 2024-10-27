@@ -1,8 +1,8 @@
 .stepScreen{
-display: grid;
+  display: grid;
   grid-template-columns: 0.4fr 0.6fr; 
   max-width: 100%; 
-  margin: 0 auto;
+  margin: 0;
   width: 100vw; 
   height: 100vh;
 }
