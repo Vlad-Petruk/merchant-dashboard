@@ -40,7 +40,7 @@ function ConnectShopifyCard({onConnect, onResponse}) {
     )
 }
 
-function SuccessfulShopifyConnection ({onNext, nextStep}) {
+function SuccessfulShopifyConnection ({onNext, onConnect, nextStep}) {
     function handleAction () {
         onNext()
         nextStep()
@@ -51,18 +51,18 @@ function SuccessfulShopifyConnection ({onNext, nextStep}) {
             <h2>Store connected</h2>
             <p className={cardStyles.smallText}>Chad is now able to manage customer support requests for [STORE-NAME].</p>
             <button type="button" className={cardStyles.continueBtn} onClick={handleAction}>Continue</button>
-            <p className={cardStyles.login}>Wrong store?<a href="">Connect another one</a></p>
+            <p className={cardStyles.login}>Wrong store?<span onClick={onConnect} className={cardStyles.redirect}>Connect another one</span></p>
         </div>
     )
 }
 
-function ShopifyAlreadyConnected ({onNext}) {
+function ShopifyAlreadyConnected ({onNext, onConnect}) {
     return(
         <div className={cardStyles.racoonCard}>
             <img src="/racoon.png" alt="racoon" />
             <h2 className={cardStyles.centered}>[STORE-NAME] already connected</h2>
             <button type="button" className={cardStyles.continueBtn} onClick={onNext}>Continue</button>
-            <p className={cardStyles.login}>Not your store?<a href="">Connect another one</a></p>
+            <p className={cardStyles.login}>Not your store?<span onClick={onConnect} className={cardStyles.redirect}>Connect another one</span></p>
         </div>
     )
 }
@@ -114,8 +114,8 @@ function ConnectShopify() {
             </ProgressIndicator>
             <FormContainer>
                 {shopifyConnectionState === "initial" && <ConnectShopifyCard onResponse={() => handleAction("noShopify")} onConnect={() => handleAction("successfulConnection")} />}
-                {shopifyConnectionState === "successfulConnection" && <SuccessfulShopifyConnection onNext={() => handleAction("alreadyConnected")} nextStep={()=>handleNext()} />}
-                {shopifyConnectionState === "alreadyConnected" && <ShopifyAlreadyConnected onNext={() => handleNext()} />}
+                {shopifyConnectionState === "successfulConnection" && <SuccessfulShopifyConnection onNext={() => handleAction("alreadyConnected")} nextStep={()=>handleNext()} onConnect={() =>handleAction('initial')} />}
+                {shopifyConnectionState === "alreadyConnected" && <ShopifyAlreadyConnected onNext={() => handleNext()} onConnect={() =>handleAction('initial')} />}
                 {shopifyConnectionState === "noShopify" && <ShopifyAbsentCard onResponse={() => handleAction("responseReceived")} onConnect={() =>handleAction('initial')}  />}
                 {shopifyConnectionState === "responseReceived" && <ResponceForAbsentShopifyCard nextStep={()=>handleNext()}/>}
                 
