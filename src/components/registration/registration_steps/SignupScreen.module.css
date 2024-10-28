@@ -88,3 +88,43 @@ input{
     color: #134267;
     cursor: pointer;
 }
+
+@media (max-width: 480px) {
+    .card {
+      width: 100vw; /* Take up most of the screen width */
+      padding: 5px 30px ; /* Reduce padding */
+      height: auto; /* Allow height to adjust based on content */
+      min-height: auto; 
+      box-shadow: none;
+      margin-top: 1vh;
+    }
+  
+    h2 {
+      font-size: 20px; /* Adjust heading font size for readability */
+      margin: 10px 0;
+    }
+  
+    .smallText,
+    label,
+    .login {
+      font-size: 12px; /* Adjust font sizes for smaller screens */
+      line-height: 1.5;
+    }
+  
+    input {
+      height: 40px; /* Slightly reduce input height */
+      padding: 8px 10px 8px 15px; /* Adjust padding for smaller screens */
+      font-size: 14px; /* Adjust font size for mobile readability */
+    }
+  
+    .create {
+      width: 100%; /* Make button full width */
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .redirect {
+      font-size: 12px; /* Adjust font size for mobile */
+    }
+  }
+  
