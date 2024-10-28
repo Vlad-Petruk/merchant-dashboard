@@ -51,7 +51,7 @@
         display: none;
     }
     .responceCardMobile {
-        display: block;
+        display: flex;
         width: 100vw;
         padding: 5px 30px;
         height: auto;
