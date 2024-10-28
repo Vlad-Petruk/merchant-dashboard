@@ -6,6 +6,7 @@ const RegistrationContext = createContext();
 export const RegistrationProvider = ({ children }) => {
   const steps = ["Welcome", "Connect your Shopify store", "Connect your customer support email", "Done"];
   const [shopifyConnectionState, setShopifyConnectionState] = useState("initial");
+  const [signupConnectionState, setSignupConnectionState] = useState("initial");
   const [currentStep, setCurrentStep] = useState(1);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -20,7 +21,7 @@ export const RegistrationProvider = ({ children }) => {
   };
 
   return (
-    <RegistrationContext.Provider value={{ currentStep, steps, handleNext, handleBack, shopifyConnectionState, setShopifyConnectionState,email, setEmail, name, setName, password, setPassword }}>
+    <RegistrationContext.Provider value={{ currentStep, steps, handleNext, handleBack, shopifyConnectionState, setShopifyConnectionState, signupConnectionState, setSignupConnectionState, email, setEmail, name, setName, password, setPassword }}>
       {children}
     </RegistrationContext.Provider>
   );
