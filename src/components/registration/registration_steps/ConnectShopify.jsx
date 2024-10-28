@@ -2,6 +2,7 @@ import { ProgressIndicator } from "./shared/ProgressIndicator";
 import { FormContainer } from "./shared/FormContainer";
 import { ChadIconContainer } from "./shared/ChadIconContainer";
 import { useRegistration } from "../../../hooks/RegistrationContext";
+import { useState } from "react";
 import styles from '../Registration.module.css'
 import cardStyles from './ConnectShopify.module.css'
 
@@ -24,7 +25,7 @@ function ListItem ({childHeader, childText}) {
     )
 }
 
-function ConnectShopifyCard() {
+function ConnectShopifyCard({onConnect, onResponse}) {
     return(
         <div className={cardStyles.card}>
             <ChadIconContainer />
@@ -39,36 +40,40 @@ function ConnectShopifyCard() {
                 <ListItem childHeader={'Process returns and exchanges'} childText={'Automatically checks your store policy and existing inventory before resolving or escalating each request'}/> 
             </div>
             
-            <button type="button" className={cardStyles.create}>Connect Store</button>
-            <p className={cardStyles.login}>{"I don't use Shopify"}</p>
+            <button type="button" className={cardStyles.create} onClick={onConnect}>Connect Store</button>
+            <p className={cardStyles.login} onClick={onResponse}>{"I don't use Shopify"}</p>
         </div>
     )
 }
 
-function SuccesfullShopifyConnection () {
+function SuccessfulShopifyConnection ({onNext, nextStep}) {
+    function handleAction () {
+        onNext()
+        nextStep()
+    }
     return(
         <div className={cardStyles.racoonCard}>
             <img src="/racoon.png" alt="racoon" />
             <h2>Store connected</h2>
             <p className={cardStyles.smallText}>Chad is now able to manage customer support requests for [STORE-NAME].</p>
-            <button type="button" className={cardStyles.continueBtn}>Continue</button>
+            <button type="button" className={cardStyles.continueBtn} onClick={handleAction}>Continue</button>
             <p className={cardStyles.login}>Wrong store?<a href="">Connect another one</a></p>
         </div>
     )
 }
 
-function ShopifyAlreadyConnected () {
+function ShopifyAlreadyConnected ({onNext}) {
     return(
         <div className={cardStyles.racoonCard}>
             <img src="/racoon.png" alt="racoon" />
             <h2 className={cardStyles.centered}>[STORE-NAME] already connected</h2>
-            <button type="button" className={cardStyles.continueBtn}>Continue</button>
+            <button type="button" className={cardStyles.continueBtn} onClick={onNext}>Continue</button>
             <p className={cardStyles.login}>Not your store?<a href="">Connect another one</a></p>
         </div>
     )
 }
 
-function ShopifyAbsentCard () {
+function ShopifyAbsentCard ({onResponse, onConnect}) {
     return(
         <div className={cardStyles.absentCard}>
             <ChadIconContainer />
@@ -82,25 +87,31 @@ function ShopifyAbsentCard () {
                 </select>
             </form>
             
-            <button type="button" className={cardStyles.create}>Submit</button>
-            <p className={cardStyles.login}>Actualy use Shopify? <a href="">Connect</a></p>
+            <button type="button" className={cardStyles.create} onClick={onResponse}>Submit</button>
+            <p className={cardStyles.login}>Actualy use Shopify? <a href="" onClick={onConnect}>Connect</a></p>
         </div>
     )
 }
 
-function ResponceForAbsentShopifyCard() {
+function ResponceForAbsentShopifyCard({nextStep}) {
     return (
         <div className={cardStyles.responceCard}>
             <img src="/done.gif" alt="racoon" className={cardStyles.imgDone}/>
             <h2 className={cardStyles.centered}>Responce received</h2>
             <p className={cardStyles.smallText}>{"Thank you for your interest in Chad! We'll be hard at work building integrations to support your platform."}</p>
-            <button type="button" className={cardStyles.continueBtn}>Done</button>
+            <button type="button" className={cardStyles.continueBtn} onClick={nextStep}>Done</button>
         </div>
     )
 }
 
 function ConnectShopify() {
     const{ currentStep, handleBack, handleNext } = useRegistration()
+    const [shopifyConnectionState, setShopifyConnectionState] = useState("initial");
+
+    const handleAction = (nextState) => {
+        setShopifyConnectionState(nextState);
+    };
+
 
     return(
         <div className={styles.stepScreen}>
@@ -109,10 +120,15 @@ function ConnectShopify() {
                 <button onClick={handleNext} disabled={currentStep === 4}>Next &gt;</button>
             </ProgressIndicator>
             <FormContainer>
+                {shopifyConnectionState === "initial" && <ConnectShopifyCard onResponse={() => handleAction("noShopify")} onConnect={() => handleAction("successfulConnection")} />}
+                {shopifyConnectionState === "successfulConnection" && <SuccessfulShopifyConnection onNext={() => handleAction("alreadyConnected")} nextStep={()=>handleNext()} />}
+                {shopifyConnectionState === "alreadyConnected" && <ShopifyAlreadyConnected onNext={() => handleAction("alreadyConnected")} />}
+                {shopifyConnectionState === "noShopify" && <ShopifyAbsentCard onResponse={() => handleAction("responseReceived")}  />}
+                {shopifyConnectionState === "responseReceived" && <ResponceForAbsentShopifyCard nextStep={()=>handleNext()}/>}
                 {/* <ConnectShopifyCard/> */}
                 {/* <SuccesfullShopifyConnection /> */}
                 {/* <ShopifyAlreadyConnected /> */}
-                <ShopifyAbsentCard />
+                {/* <ShopifyAbsentCard /> */}
                 {/* <ResponceForAbsentShopifyCard /> */}
             </FormContainer>
             
