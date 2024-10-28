@@ -46,7 +46,7 @@
 
 .circle.completed{
   background-color: #32ABF2;
-  background-image: url(/public/white-check.png);
+  background-image: url(/white-check.png);
   background-size: 16px 16px;
   background-repeat: no-repeat;
   background-position: center;
