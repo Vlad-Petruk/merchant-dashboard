@@ -99,8 +99,8 @@ function ResponceForAbsentShopifyCard({nextStep}) {
 }
 
 function ConnectShopify() {
-    const{ currentStep, handleBack, handleNext } = useRegistration()
-    const [shopifyConnectionState, setShopifyConnectionState] = useState("initial");
+    const{ currentStep, handleBack, handleNext, shopifyConnectionState, setShopifyConnectionState } = useRegistration()
+    // const [shopifyConnectionState, setShopifyConnectionState] = useState("initial");
 
     const handleAction = (nextState) => {
         setShopifyConnectionState(nextState);
