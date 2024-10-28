@@ -27,6 +27,26 @@
     cursor: pointer;
 }
 
+.smallText{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #4F637D;
+}
+
+.responceCardMobile{
+    display: none;
+}
+
+.imgDone{
+    width: 160px;
+}
+
+
 @media (max-width: 480px) {
     .responceCard{
         display: none;
