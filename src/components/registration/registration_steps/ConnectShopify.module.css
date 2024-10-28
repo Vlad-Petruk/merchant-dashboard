@@ -173,6 +173,13 @@
     cursor: pointer;
 }
 
+.card,
+.racoonCard,
+.absentCard,
+.responceCard {
+    background: white;
+}
+
 @media (max-width: 480px) {
     .card,
     .racoonCard,
