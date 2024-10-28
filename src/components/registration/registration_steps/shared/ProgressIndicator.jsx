@@ -3,6 +3,7 @@ import { useRegistration } from '../../../../hooks/RegistrationContext'
 
 function ProgressIndicator({ children }) {
     const { currentStep, steps } = useRegistration();
+    const progressWidth = (currentStep / steps.length) * 100;
 
     const getCircleClassName = (index) => {
       let className = styles.circle;
@@ -19,7 +20,12 @@ function ProgressIndicator({ children }) {
 
     return (
         <div className={styles.mainContainer}>
+            <p className={styles.stepIndicator}>Step {currentStep} of {steps.length}</p>
             <div className={styles.stepsAndButtons}>
+            <div className={styles.progressBar}> 
+                <div className={styles.progress}
+                 style={{ width: `${progressWidth}%` }}></div>
+             </div>
                 <div className={styles.steps}>
                     {steps.map((step, index) => (
                         <div key={index} className={styles.step}>

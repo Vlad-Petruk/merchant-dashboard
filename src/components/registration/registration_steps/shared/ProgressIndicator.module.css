@@ -142,3 +142,94 @@
 .buttons button:focus{
   background-color: #134267;
 }
+
+.progressBar{
+  display: none;
+}
+
+.stepIndicator{
+  display: none;
+}
+
+
+/* Base styling adjustments for mobile */
+@media (max-width: 480px) {
+  .mainContainer {
+    padding-top: 5vh;
+    padding-bottom: 0;
+    width: 100%;
+    align-items: center;
+    background: none;
+  }
+
+  .stepIndicator{
+    display: block;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    padding-left: 30px;
+    align-self: flex-start;
+    color: #4F637D;
+  }
+
+  .stepsAndButtons {
+    width: 90%; /* Takes most of the screen width on mobile */
+    height: auto;
+    padding: 5px;
+  }
+
+  .steps {
+    display: none;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .label {
+    display: none
+  }
+
+  .buttons {
+    margin-top: 8px;
+    padding: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .buttons button {
+    font-size: 14px;
+    width: auto;
+    padding: 3px;
+    background: none;
+    color: #4F637D;
+  }
+
+  /* Progress bar styling */
+.progressBar {
+  display: block;
+  width: 100%;
+  height: 10px; /* Adjust height as needed */
+  background-color: none;
+  border: 1px solid #C9D3E0; /* Background color for empty state */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 5px; /* Space between progress bar and buttons */
+}
+
+.progress {
+  height: 100%;
+  background-color: #32ABF2; /* Color of filled portion */
+  /* width: 50%; */
+  transition: width 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+  .textAndDots {
+    display: none; /* Hide the large text if necessary to save space */
+  }
+}
