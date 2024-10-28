@@ -81,11 +81,11 @@ function ConnectGmail() {
         <div className={styles.stepScreen}>
             <ProgressIndicator>
                 <button onClick={handleBack} disabled={currentStep === 1}>&lt; Back</button>
-                <button onClick={handleNext} disabled={currentStep === 4}>Next &gt;</button>
+                <button onClick={handleNext} disabled={currentStep === 4||gmailConnectionState === "initialStep"}>Next &gt;</button>
             </ProgressIndicator>
             <FormContainer>
                 {gmailConnectionState === "initialStep" && <ConnectGmailCard onResponse={() => handleAction("noGmail")} onConnect={handleNext}/>}
-                {gmailConnectionState === "noGmail" && <GmailAbsentCard onResponse={() => handleAction("responseReceived")} onConnects={()=>handleAction('initialStep')}  />}
+                {gmailConnectionState === "noGmail" && <GmailAbsentCard onResponse={() => handleAction("responseReceived")} onConnect={()=>handleAction('initialStep')}  />}
                 {gmailConnectionState === "responseReceived" && <ResponceForAbsentGmailCard nextStep={()=>handleNext()}/>}
                 
             </FormContainer>
