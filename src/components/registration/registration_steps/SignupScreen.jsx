@@ -2,9 +2,12 @@ import { ProgressIndicator } from "./shared/ProgressIndicator"
 import { FormContainer } from "./shared/FormContainer"
 import { ChadIconContainer } from "./shared/ChadIconContainer"
 import { useRegistration } from "../../../hooks/RegistrationContext"
+import { Loading } from "./shared/Loading"
 import { useState } from "react"
 import styles from '../Registration.module.css'
 import cardStyles from './SignupScreen.module.css'
+
+
 function SignupScreen() {
     const{ currentStep, handleBack, handleNext,email, setEmail, name, setName, password, setPassword } = useRegistration()
 
@@ -57,7 +60,7 @@ function SignupScreen() {
                             required
                         />
                         <button type="submit" className={cardStyles.create}>Create account</button>
-                        <p className={cardStyles.login}>Already have an account? <a href="">Login</a></p>
+                        <p className={cardStyles.login}>Already have an account? <span onClick={()=>handleBack()} className={cardStyles.redirect}>Login</span></p>
                     </form>
                 </div>
             </FormContainer>

@@ -83,3 +83,8 @@ input{
     color: white;
     border: none;
 }
+
+.redirect{
+    color: #134267;
+    cursor: pointer;
+}
