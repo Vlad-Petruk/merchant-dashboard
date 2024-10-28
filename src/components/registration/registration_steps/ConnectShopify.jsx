@@ -7,12 +7,6 @@ import styles from '../Registration.module.css'
 import cardStyles from './ConnectShopify.module.css'
 
 
-
-
-
-// Outlet????
-
-
 function ListItem ({childHeader, childText}) {
     return(
         <div className={cardStyles.listItem}>
@@ -88,7 +82,7 @@ function ShopifyAbsentCard ({onResponse, onConnect}) {
             </form>
             
             <button type="button" className={cardStyles.create} onClick={onResponse}>Submit</button>
-            <p className={cardStyles.login}>Actualy use Shopify? <a href="" onClick={onConnect}>Connect</a></p>
+            <p className={cardStyles.login}>Actualy use Shopify? <span onClick={onConnect} className={cardStyles.redirect}>Connect</span></p>
         </div>
     )
 }
@@ -123,13 +117,9 @@ function ConnectShopify() {
                 {shopifyConnectionState === "initial" && <ConnectShopifyCard onResponse={() => handleAction("noShopify")} onConnect={() => handleAction("successfulConnection")} />}
                 {shopifyConnectionState === "successfulConnection" && <SuccessfulShopifyConnection onNext={() => handleAction("alreadyConnected")} nextStep={()=>handleNext()} />}
                 {shopifyConnectionState === "alreadyConnected" && <ShopifyAlreadyConnected onNext={() => handleAction("alreadyConnected")} />}
-                {shopifyConnectionState === "noShopify" && <ShopifyAbsentCard onResponse={() => handleAction("responseReceived")}  />}
+                {shopifyConnectionState === "noShopify" && <ShopifyAbsentCard onResponse={() => handleAction("responseReceived")} onConnect={() =>handleAction('initial')}  />}
                 {shopifyConnectionState === "responseReceived" && <ResponceForAbsentShopifyCard nextStep={()=>handleNext()}/>}
-                {/* <ConnectShopifyCard/> */}
-                {/* <SuccesfullShopifyConnection /> */}
-                {/* <ShopifyAlreadyConnected /> */}
-                {/* <ShopifyAbsentCard /> */}
-                {/* <ResponceForAbsentShopifyCard /> */}
+                
             </FormContainer>
             
         </div>
