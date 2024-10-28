@@ -232,4 +232,9 @@
   .textAndDots {
     display: none; /* Hide the large text if necessary to save space */
   }
+
+  .buttons button:active,
+  .buttons button:focus{
+  background: none;
+}
 }
