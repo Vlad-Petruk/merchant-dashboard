@@ -2,9 +2,9 @@ import { ProgressIndicator } from "./shared/ProgressIndicator";
 import { FormContainer } from "./shared/FormContainer";
 import { useRegistration } from "../../../hooks/RegistrationContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from '../Registration.module.css'
 import cardStyles from './ConnectShopify.module.css'
-
 
 function CompleteCard({nextStep}) {
     return (
@@ -20,9 +20,11 @@ function CompleteCard({nextStep}) {
 function RegistrationComplete() {
     const{ currentStep, handleBack, handleNext } = useRegistration()
     const [shopifyConnectionState, setShopifyConnectionState] = useState("initial");
+    const navigate = useNavigate()
 
-    const handleAction = (nextState) => {
-        setShopifyConnectionState(nextState);
+
+    const handleAction = () => {
+        navigate('/greeting')
     };
 
 
@@ -33,7 +35,7 @@ function RegistrationComplete() {
                 <button onClick={handleNext} disabled={currentStep === 4}>Next &gt;</button>
             </ProgressIndicator>
             <FormContainer>
-                <CompleteCard />
+                <CompleteCard nextStep={handleAction}/>
             </FormContainer>
             
         </div>
