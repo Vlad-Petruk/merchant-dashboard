@@ -28,6 +28,7 @@
     letter-spacing: -0.01em;
     text-align: center;
     color: #4F637D;
+    cursor: pointer;
     
 }
 
@@ -165,4 +166,9 @@
 
 .imgDone{
     width: 160px;
+}
+
+.redirect{
+    color: #134267;
+    cursor: pointer;
 }
