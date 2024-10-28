@@ -1,16 +1,15 @@
-.card{
+.card {
     margin-top: 5vh;
     padding: 64px 40px;
-    height: 75vh;
+    min-height: 75vh;
     width: 30vw;
     border-radius: 8px;
     box-shadow: 0px 5px 20px 0px #6C758B33;
-
     display: flex;
     flex-direction: column;
 }
 
-.smallText{
+.smallText {
     margin: 0;
     font-size: 14px;
     font-weight: 400;
@@ -21,7 +20,7 @@
     color: #4F637D;
 }
 
-.login{
+.login {
     font-size: 12px;
     font-weight: 400;
     line-height: 18px;
@@ -29,12 +28,11 @@
     text-align: center;
     color: #4F637D;
     cursor: pointer;
-    
 }
 
-.create{
+.create {
     height: 43px;
-    padding: 11px 0px 11px 0px;
+    padding: 11px 0;
     gap: 10px;
     border-radius: 8px;
     background-color: #32ABF2;
@@ -45,13 +43,13 @@
     cursor: pointer;
 }
 
-.listItem{
+.listItem {
     display: flex;
     gap: 5px;
     margin-bottom: 15px;
 }
 
-.header{
+.header {
     margin: 0;
     font-size: 14px;
     font-weight: 500;
@@ -61,9 +59,8 @@
     color: #134267;
 }
 
-.text{
+.text {
     margin: 0;
-
     font-size: 12px;
     font-weight: 400;
     line-height: 18px;
@@ -72,21 +69,18 @@
     color: #4F637D;
 }
 
-.listItem img{
+.listItem img {
     height: 16px;
     margin-top: 2px;
 }
 
-/* Successfull connection */
-
-.racoonCard{
+.racoonCard {
     margin-top: 5vh;
     padding: 64px 60px;
     height: 55vh;
     width: 30vw;
     border-radius: 8px;
     box-shadow: 0px 5px 20px 0px #6C758B33;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,9 +90,9 @@
     width: 80px;
 }
 
-.continueBtn{
+.continueBtn {
     height: 43px;
-    padding: 11px 0px 11px 0px;
+    padding: 11px 0;
     gap: 10px;
     border-radius: 8px;
     background-color: #32ABF2;
@@ -111,64 +105,58 @@
     cursor: pointer;
 }
 
-.centered{
+.centered {
     text-align: center;
 }
 
-/* Absent card */
-
-.absentCard{
+.absentCard {
     margin-top: 5vh;
     padding: 44px 40px;
     min-height: 60vh;
     width: 30vw;
     border-radius: 8px;
     box-shadow: 0px 5px 20px 0px #6C758B33;
-
     display: flex;
     flex-direction: column;
 }
 
-.platformSelect{
+.platformSelect {
     margin-bottom: 30px;
     height: 40px;
     padding: 10px 10px 10px 17px;
     gap: 10px;
     border-radius: 4px;
-    /* color: #030E16; */
     color: #C3CAD5;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.01em;
     text-align: left;
-
     background-color: #F8F9FC;
     border: none;
 }
 
-.responceCard{
+.responceCard {
     margin-top: 5vh;
     padding: 24px 60px;
     min-height: 55vh;
     width: 27vw;
     border-radius: 8px;
     box-shadow: 0px 5px 20px 0px #6C758B33;
-
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.responceCard h2{
+.responceCard h2 {
     margin-top: 0;
 }
 
-.imgDone{
+.imgDone {
     width: 160px;
 }
 
-.redirect{
+.redirect {
     color: #134267;
     cursor: pointer;
 }
@@ -185,60 +173,57 @@
     .racoonCard,
     .absentCard,
     .responceCard {
-      width: 100vw; /* Make the cards take up most of the screen width */
-      padding: 5px 30px ; /* Reduce padding */
-      height: auto; /* Allow height to adjust based on content */
-      min-height: auto; 
-      box-shadow: none;
-      margin-top: 1vh;
+        width: 100vw;
+        padding: 5px 30px;
+        height: auto;
+        min-height: auto;
+        box-shadow: none;
+        margin-top: 1vh;
     }
-  
+
     .smallText,
     .header,
     .text,
     .login {
-      font-size: 12px; /* Adjust font sizes for readability on small screens */
-      line-height: 1.5;
+        font-size: 12px;
+        line-height: 1.5;
     }
-  
+
     .create,
     .continueBtn {
-      width: 100%; /* Make buttons full width for easy tapping */
-      padding: 10px;
-      font-size: 14px;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
     }
-  
+
     .imgDone {
-      width: 120px; /* Scale down image for smaller screens */
+        width: 120px;
     }
-  
+
     .racoonCard img {
-      width: 60px; /* Adjust image size for smaller screens */
+        width: 60px;
     }
-  
+
     .platformSelect {
-      height: 36px; /* Slightly reduce height */
-      font-size: 14px; /* Adjust font size for mobile */
+        height: 36px;
+        font-size: 14px;
     }
-  
+
     .listItem {
-      gap: 8px; /* Reduce gap for a tighter layout */
-      margin-bottom: 10px;
+        gap: 8px;
+        margin-bottom: 10px;
     }
-  
+
     .centered {
-      text-align: center; /* Ensures centered text looks good on mobile */
+        text-align: center;
     }
-  
+
     .responceCard h2 {
-      font-size: 18px; /* Adjust heading font size */
-      margin-top: 10px;
+        font-size: 18px;
+        margin-top: 10px;
     }
-  
+
     .redirect {
-      font-size: 12px; /* Adjust font size for mobile */
+        font-size: 12px;
     }
-  
-    /* Optional: Add more specific styles based on your exact mobile design needs */
-  }
-  
+}

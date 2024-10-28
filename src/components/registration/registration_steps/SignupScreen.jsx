@@ -7,7 +7,7 @@ import cardStyles from './SignupScreen.module.css';
 
 function LoginCard ({email, setEmail, password, setPassword, handleSubmit, handleAction }) {
     return(
-      <div className={cardStyles.card}>
+      <div className={cardStyles.cardLogin}>
           <ChadIconContainer />
           <h2>Welcome to Chad</h2>
           <p className={cardStyles.smallText}>

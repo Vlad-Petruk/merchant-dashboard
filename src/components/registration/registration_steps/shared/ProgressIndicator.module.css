@@ -23,7 +23,6 @@
 
 .step {
   display: flex;
-  /* align-items: center; */
   gap: 8px;
 }
 
@@ -44,7 +43,7 @@
   border-color: #32ABF2;
 }
 
-.circle.completed{
+.circle.completed {
   background-color: #32ABF2;
   background-image: url(/white-check.png);
   background-size: 16px 16px;
@@ -59,7 +58,7 @@
 }
 
 .line.completed {
-  background-color: #32ABF2; 
+  background-color: #32ABF2;
 }
 
 .label {
@@ -86,7 +85,7 @@
   display: flex;
   align-items: center;
   border-radius: 8px;
-  color: #96CAF7; 
+  color: #96CAF7;
   background-color: #134267;
 }
 
@@ -102,7 +101,6 @@
   line-height: 1.4;
 }
 
-/* Dots Container Styling */
 .dots {
   display: flex;
   gap: 8px;
@@ -119,40 +117,38 @@
   background-color: #96CAF7;
 }
 
-.buttons{
+.buttons {
   margin-top: 24px;
   padding: 5px;
   display: flex;
   justify-content: space-between;
 }
 
-.buttons button{
+.buttons button {
   background-color: #134267;
   border: none;
   color: #5D7FA3;
   font-size: 16px;
   width: 85px;
   height: 33px;
-  padding: 6px 12px 6px 12px;
+  padding: 6px 12px;
   gap: 8px;
   border-radius: 4px;
 }
 
 .buttons button:active,
-.buttons button:focus{
+.buttons button:focus {
   background-color: #134267;
 }
 
-.progressBar{
+.progressBar {
   display: none;
 }
 
-.stepIndicator{
+.stepIndicator {
   display: none;
 }
 
-
-/* Base styling adjustments for mobile */
 @media (max-width: 480px) {
   .mainContainer {
     padding-top: 5vh;
@@ -162,7 +158,7 @@
     background: none;
   }
 
-  .stepIndicator{
+  .stepIndicator {
     display: block;
     margin: 0;
     font-size: 12px;
@@ -175,7 +171,7 @@
   }
 
   .stepsAndButtons {
-    width: 90%; /* Takes most of the screen width on mobile */
+    width: 90%;
     height: auto;
     padding: 5px;
   }
@@ -190,8 +186,9 @@
     align-items: center;
     gap: 4px;
   }
+
   .label {
-    display: none
+    display: none;
   }
 
   .buttons {
@@ -209,32 +206,30 @@
     color: #4F637D;
   }
 
-  /* Progress bar styling */
-.progressBar {
-  display: block;
-  width: 100%;
-  height: 10px; /* Adjust height as needed */
-  background-color: none;
-  border: 1px solid #C9D3E0; /* Background color for empty state */
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 5px; /* Space between progress bar and buttons */
-}
+  .progressBar {
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: none;
+    border: 1px solid #C9D3E0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+  }
 
-.progress {
-  height: 100%;
-  background-color: #32ABF2; /* Color of filled portion */
-  /* width: 50%; */
-  transition: width 0.3s ease-in-out;
-  border-radius: 5px;
-}
+  .progress {
+    height: 100%;
+    background-color: #32ABF2;
+    transition: width 0.3s ease-in-out;
+    border-radius: 5px;
+  }
 
   .textAndDots {
-    display: none; /* Hide the large text if necessary to save space */
+    display: none;
   }
 
   .buttons button:active,
-  .buttons button:focus{
-  background: none;
-}
+  .buttons button:focus {
+    background: none;
+  }
 }
