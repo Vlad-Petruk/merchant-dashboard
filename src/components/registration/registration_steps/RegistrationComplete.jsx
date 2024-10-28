@@ -1,7 +1,6 @@
 import { ProgressIndicator } from "./shared/ProgressIndicator";
 import { FormContainer } from "./shared/FormContainer";
 import { useRegistration } from "../../../hooks/RegistrationContext";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from '../Registration.module.css'
 import cardStyles from './RegistrationComplete.module.css'
@@ -27,7 +26,6 @@ function CompleteCard({nextStep}) {
 
 function RegistrationComplete() {
     const{ currentStep, handleBack, handleNext } = useRegistration()
-    const [shopifyConnectionState, setShopifyConnectionState] = useState("initial");
     const navigate = useNavigate()
 
 

@@ -2,7 +2,6 @@ import { ProgressIndicator } from "./shared/ProgressIndicator";
 import { FormContainer } from "./shared/FormContainer";
 import { ChadIconContainer } from "./shared/ChadIconContainer";
 import { useRegistration } from "../../../hooks/RegistrationContext";
-import { useState } from "react";
 import styles from '../Registration.module.css'
 import cardStyles from './ConnectShopify.module.css'
 
