@@ -100,7 +100,6 @@ function ResponceForAbsentShopifyCard({nextStep}) {
 
 function ConnectShopify() {
     const{ currentStep, handleBack, handleNext, shopifyConnectionState, setShopifyConnectionState } = useRegistration()
-    // const [shopifyConnectionState, setShopifyConnectionState] = useState("initial");
 
     const handleAction = (nextState) => {
         setShopifyConnectionState(nextState);
@@ -111,12 +110,12 @@ function ConnectShopify() {
         <div className={styles.stepScreen}>
             <ProgressIndicator>
                 <button onClick={handleBack} disabled={currentStep === 1}>&lt; Back</button>
-                <button onClick={handleNext} disabled={currentStep === 4}>Next &gt;</button>
+                <button onClick={handleNext} disabled={currentStep === 4||shopifyConnectionState === "initial"}>Next &gt;</button>
             </ProgressIndicator>
             <FormContainer>
                 {shopifyConnectionState === "initial" && <ConnectShopifyCard onResponse={() => handleAction("noShopify")} onConnect={() => handleAction("successfulConnection")} />}
                 {shopifyConnectionState === "successfulConnection" && <SuccessfulShopifyConnection onNext={() => handleAction("alreadyConnected")} nextStep={()=>handleNext()} />}
-                {shopifyConnectionState === "alreadyConnected" && <ShopifyAlreadyConnected onNext={() => handleAction("alreadyConnected")} />}
+                {shopifyConnectionState === "alreadyConnected" && <ShopifyAlreadyConnected onNext={() => handleNext()} />}
                 {shopifyConnectionState === "noShopify" && <ShopifyAbsentCard onResponse={() => handleAction("responseReceived")} onConnect={() =>handleAction('initial')}  />}
                 {shopifyConnectionState === "responseReceived" && <ResponceForAbsentShopifyCard nextStep={()=>handleNext()}/>}
                 
