@@ -18,7 +18,7 @@ function ListItem ({childHeader, childText}) {
     )
 }
 
-function ConnectGmailCard({onConnects, onResponse}) {
+function ConnectGmailCard({onConnect, onResponse}) {
     return(
         <div className={cardStyles.card}>
             <ChadIconContainer />
@@ -33,7 +33,7 @@ function ConnectGmailCard({onConnects, onResponse}) {
                 <ListItem childHeader={'Categorical inbox tags'} childText={'Tags your emails by category so you know what to expect before even opening an email'}/> 
             </div>
             
-            <button type="button" className={cardStyles.create} onClick={onConnects}>Connect Gmail account</button>
+            <button type="button" className={cardStyles.create} onClick={onConnect}>Connect Gmail account</button>
             <p className={cardStyles.login} onClick={onResponse}>{"I don't use Gmail"}</p>
         </div>
     )
@@ -71,7 +71,7 @@ function ResponceForAbsentGmailCard({nextStep}) {
 }
 
 function ConnectGmail() {
-    const{ currentStep, handleBack, handleNext } = useRegistration()
+    const{ currentStep, handleBack, handleNext,  } = useRegistration()
     const [gmailConnectionState, setGmailConnectionState] = useState("initialStep");
 
     const handleAction = (nextState) => {
@@ -84,9 +84,7 @@ function ConnectGmail() {
                 <button onClick={handleNext} disabled={currentStep === 4}>Next &gt;</button>
             </ProgressIndicator>
             <FormContainer>
-                {gmailConnectionState === "initialStep" && <ConnectGmailCard onResponse={() => handleAction("noGmail")} />}
-                {/* {gmailConnectionState === "successfulConnection" && <SuccessfulGmailConnection onNext={() => handleAction("alreadyConnected")} nextStep={()=>handleNext()} />} */}
-                {/* {shopifyConnectionState === "alreadyConnected" && <ShopifyAlreadyConnected onNext={() => handleAction("alreadyConnected")} />} */}
+                {gmailConnectionState === "initialStep" && <ConnectGmailCard onResponse={() => handleAction("noGmail")} onConnect={handleNext}/>}
                 {gmailConnectionState === "noGmail" && <GmailAbsentCard onResponse={() => handleAction("responseReceived")} onConnects={()=>handleAction('initialStep')}  />}
                 {gmailConnectionState === "responseReceived" && <ResponceForAbsentGmailCard nextStep={()=>handleNext()}/>}
                 
