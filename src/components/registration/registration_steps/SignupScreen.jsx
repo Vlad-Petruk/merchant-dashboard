@@ -2,8 +2,6 @@ import { ProgressIndicator } from "./shared/ProgressIndicator"
 import { FormContainer } from "./shared/FormContainer"
 import { ChadIconContainer } from "./shared/ChadIconContainer"
 import { useRegistration } from "../../../hooks/RegistrationContext"
-import { Loading } from "./shared/Loading"
-import { useState } from "react"
 import styles from '../Registration.module.css'
 import cardStyles from './SignupScreen.module.css';
 
